@@ -38,11 +38,11 @@ The app helps users quickly compare prices across these stores, track deals, and
 
 ## Data Strategy
 ### Sources (Initial)
-- Public flyers and weekly deals from store websites.
-- Manually curated price lists for pilot testing.
+- Public flyers and weekly deals from store websites (Walmart, Save-On-Foods, Thrifty Foods).
+- Manually curated price lists for pilot testing and validation.
 
 ### Potential Improvements
-- Semi-automated scraping (if allowed by store terms).
+- Semi-automated flyer ingestion (if allowed by store terms) with metadata: store, item, price, unit, valid dates, and source URL.
 - Partner APIs (if available).
 - Crowd-sourced price reporting (later phase).
 
@@ -78,5 +78,5 @@ The app helps users quickly compare prices across these stores, track deals, and
 
 ## Next Steps
 - Validate MVP features with 5–10 target users in Victoria.
-- Build a small dataset of 200–500 common products.
-- Prototype the comparison UI and test usability.
+- Build a small dataset of 200–500 common products sourced from flyers.
+- Add a flyer ingestion pipeline (manual upload or CSV import) feeding the comparison UI.

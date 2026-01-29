@@ -1,6 +1,6 @@
 # Victoria Grocery Price Compare (MVP)
 
-This is a small FastAPI app that lets you compare sample prices across Walmart, Save-On-Foods, and Thrifty Foods in Victoria, BC.
+This is a small FastAPI app that lets you compare sample prices across Walmart, Save-On-Foods, and Thrifty Foods in Victoria, BC, including links back to the current store flyers.
 
 ## Run locally
 
@@ -17,3 +17,4 @@ Then open http://127.0.0.1:8000 in your browser.
 ## Notes
 - The product list is hard-coded for the MVP. Replace with a data pipeline or database when ready.
 - Deals are sample entries for the weekly deals carousel.
+- A future step is ingesting flyer data into a structured table (store, item, price, unit, valid dates, source URL) before loading it into the app.

@@ -16,6 +16,7 @@ class ProductPrice:
     store: str
     price: float
     unit: str
+    flyer_source: str
 
 
 PRODUCTS: list[ProductPrice] = [
@@ -27,6 +28,7 @@ PRODUCTS: list[ProductPrice] = [
         store="Walmart",
         price=5.49,
         unit="each",
+        flyer_source="https://www.walmart.ca/en/flyer",
     ),
     ProductPrice(
         product_id="milk-2l",
@@ -36,6 +38,7 @@ PRODUCTS: list[ProductPrice] = [
         store="Save-On-Foods",
         price=5.99,
         unit="each",
+        flyer_source="https://www.saveonfoods.com/flyer",
     ),
     ProductPrice(
         product_id="milk-2l",
@@ -45,6 +48,7 @@ PRODUCTS: list[ProductPrice] = [
         store="Thrifty Foods",
         price=6.29,
         unit="each",
+        flyer_source="https://www.thriftyfoods.com/flyer",
     ),
     ProductPrice(
         product_id="eggs-12",
@@ -54,6 +58,7 @@ PRODUCTS: list[ProductPrice] = [
         store="Walmart",
         price=4.79,
         unit="pack",
+        flyer_source="https://www.walmart.ca/en/flyer",
     ),
     ProductPrice(
         product_id="eggs-12",
@@ -63,6 +68,7 @@ PRODUCTS: list[ProductPrice] = [
         store="Save-On-Foods",
         price=5.29,
         unit="pack",
+        flyer_source="https://www.saveonfoods.com/flyer",
     ),
     ProductPrice(
         product_id="eggs-12",
@@ -72,6 +78,7 @@ PRODUCTS: list[ProductPrice] = [
         store="Thrifty Foods",
         price=5.49,
         unit="pack",
+        flyer_source="https://www.thriftyfoods.com/flyer",
     ),
     ProductPrice(
         product_id="bread-675g",
@@ -81,6 +88,7 @@ PRODUCTS: list[ProductPrice] = [
         store="Walmart",
         price=3.49,
         unit="loaf",
+        flyer_source="https://www.walmart.ca/en/flyer",
     ),
     ProductPrice(
         product_id="bread-675g",
@@ -90,6 +98,7 @@ PRODUCTS: list[ProductPrice] = [
         store="Save-On-Foods",
         price=3.99,
         unit="loaf",
+        flyer_source="https://www.saveonfoods.com/flyer",
     ),
     ProductPrice(
         product_id="bread-675g",
@@ -99,6 +108,7 @@ PRODUCTS: list[ProductPrice] = [
         store="Thrifty Foods",
         price=4.29,
         unit="loaf",
+        flyer_source="https://www.thriftyfoods.com/flyer",
     ),
 ]
 
@@ -185,6 +195,7 @@ def root() -> str:
                         <td>${item.category}</td>
                         <td>${item.store}</td>
                         <td class=\"price\">$${item.price.toFixed(2)} / ${item.unit}</td>
+                        <td><a href=\"${item.flyer_source}\" target=\"_blank\" rel=\"noopener\">Flyer</a></td>
                     </tr>
                 `).join('');
                 return `
@@ -196,6 +207,7 @@ def root() -> str:
                                 <th>Category</th>
                                 <th>Store</th>
                                 <th>Price</th>
+                                <th>Flyer</th>
                             </tr>
                         </thead>
                         <tbody>${rows}</tbody>
@@ -245,6 +257,7 @@ def list_products(q: str | None = Query(default=None, description="Search term")
             "store": item.store,
             "price": item.price,
             "unit": item.unit,
+            "flyer_source": item.flyer_source,
         }
         for item in matched
     ]
