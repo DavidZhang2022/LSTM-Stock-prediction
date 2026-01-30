@@ -5,7 +5,7 @@ This is a small FastAPI app that lets you compare sample prices across Walmart, 
 ## Run locally
 
 ```bash
-cd app
+cd supermarket_price_app
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
